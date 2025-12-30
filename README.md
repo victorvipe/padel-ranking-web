@@ -1,5 +1,46 @@
 # PadelRankingWeb
 
+Web application to visualize the ranking and sign-ups of an LGTB padel community.
+
+The project is designed to work with:
+- Google Forms for player sign-ups
+- Google Sheets as the source of truth
+- A future Google Apps Script REST API
+- Angular as the frontend
+
+The goal is to provide a clean, modern and accessible UI on top of the existing Google Sheets workflow, without replacing it.
+
+---
+
+## Project status
+
+🚧 In active development.
+
+At the moment:
+- The frontend is being built using mock data
+- Google Sheets integration will be added later via Apps Script
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+You can:
+- Improve UI/UX
+- Add components or views
+- Refactor structure
+- Add tests
+
+For local development:
+
+```bash
+git clone https://github.com/victorvipe/padel-ranking-web.git
+cd padel-ranking-web
+npm install
+ng serve 
+```
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
 
 ## Development server
