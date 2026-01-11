@@ -1,12 +1,33 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatTabsModule, MatButtonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  standalone: true
 })
 export class AppComponent {
-  title = 'padel-ranking-web';
+  title = 'Panteres Grogues Padel';
+  mobileMenuOpen = false;
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  tabs = [
+    { path: '/ranking', label: 'Ranking' },
+    { path: '/results', label: 'Results' },
+    { path: '/matches', label: 'Matches' },
+    { path: '/apuntados', label: 'Apuntados' },
+    { path: '/formula', label: 'Formula' },
+    { path: '/pista-inoportuna', label: 'Pista Inoportuna' },
+    { path: '/orla', label: 'Orla' },
+    { path: '/records', label: 'Records' }
+  ];
 }

@@ -1,1 +1,166 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Paleta corporativa Panteres Grogues (aproximada) */
+:root {
+	--pg-yellow: #ffd400;
+	--pg-blue: #003087;
+}
+
+/* Angular Material overrides */
+.mat-toolbar,
+.mat-mdc-toolbar {
+	background-color: var(--pg-blue) !important;
+	color: #ffffff !important;
+}
+
+.mat-toolbar .mat-tab-nav-bar,
+.mat-mdc-toolbar .mat-tab-nav-bar {
+	margin-left: 16px;
+}
+
+/* Tabs: support both legacy and MDC class names */
+.mat-tab-link,
+.mat-mdc-tab-link,
+.mat-mdc-tab-label,
+.mat-tab-label {
+	color: rgba(255,255,255,0.95) !important;
+	font-weight: 500;
+	padding: 8px 12px;
+	border-radius: 6px;
+}
+
+/* Ensure MDC tab internal text labels default to white (non-active) */
+.mdc-tab__text-label,
+.mat-tab-link .mdc-tab__text-label,
+.mat-mdc-tab-link .mdc-tab__text-label {
+	color: rgba(255,255,255,0.95) !important;
+}
+
+/* Active tab: selected tab text yellow (no background) */
+.mat-tab-link.router-link-active,
+.mat-tab-link.mat-tab-label-active,
+.mat-tab-link[aria-current="true"],
+.mat-mdc-tab-link.mat-mdc-tab-label-active,
+.mat-mdc-tab-link[aria-current="true"],
+.mdc-tab.mdc-tab--active,
+.mat-mdc-tab-link.mdc-tab--active {
+	background-color: transparent !important;
+	color: var(--pg-yellow) !important;
+}
+
+/* Ensure text label inside MDC/legacy gets the yellow color explicitly */
+.mdc-tab.mdc-tab--active .mdc-tab__text-label,
+.mat-mdc-tab-link.mdc-tab--active .mdc-tab__text-label,
+.mat-tab-link.router-link-active .mdc-tab__text-label,
+.mat-tab-link.router-link-active .mat-tab-label,
+.mat-mdc-tab-link[aria-current="true"] .mdc-tab__text-label {
+	color: var(--pg-yellow) !important;
+}
+
+/* Make sure active tab container has no yellow background */
+.mdc-tab.mdc-tab--active .mdc-tab__content,
+.mat-mdc-tab-link.mdc-tab--active .mdc-tab__content {
+	background-color: transparent !important;
+}
+
+/* Ink bar / indicator (legacy + MDC) */
+.mat-ink-bar,
+.mat-mdc-tab-indicator,
+.mat-mdc-tab-bar .mat-mdc-tab-indicator,
+.mdc-tab-indicator__content.mdc-tab-indicator__content--underline {
+	background-color: var(--pg-yellow) !important;
+	height: 3px !important;
+}
+
+.mat-tab-link:hover,
+.mat-mdc-tab-link:hover {
+	background-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Primary raised buttons use yellow background with blue text (MDC & legacy) */
+.mat-raised-button.mat-primary,
+.mat-mdc-button.mat-mdc-raised-button.mat-primary {
+	background-color: var(--pg-yellow) !important;
+	color: var(--pg-blue) !important;
+}
+
+/* Ensure toolbar content (title) contrasts */
+.mat-toolbar .mat-toolbar-row,
+.mat-mdc-toolbar .mat-toolbar-row {
+	align-items: center;
+}
+
+/* Small layout helpers */
+main.main-container { padding: 16px; }
+
+/* Table responsiveness: allow horizontal scroll but keep vertical page scroll on touch devices */
+.table-responsive {
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden; /* important so table doesn't capture vertical scroll */
+	-webkit-overflow-scrolling: touch;
+	/* allow both vertical and horizontal panning so users can swipe the table horizontally on touch devices */
+	touch-action: pan-x pan-y;
+	/* contain overscroll so horizontal scrolling doesn't propagate to page */
+	overscroll-behavior-x: contain;
+}
+
+.table-responsive table { min-width: 360px; }
+
+/* Full-bleed variant: make the responsive wrapper span the full viewport width */
+.table-responsive.full-bleed {
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	width: 100vw;
+	box-sizing: border-box;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+/* On small screens revert to normal flow so stacked cards align */
+@media (max-width: 720px) {
+	.table-responsive.full-bleed {
+		left: 0;
+		right: 0;
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* Ensure ranking table uses full width of wrapper and doesn't force overflow */
+.ranking-table {
+	width: 100%;
+	min-width: 0;
+	table-layout: auto;
+}
+
+.ranking-table th,
+.ranking-table td { white-space: nowrap; }
+
+/* allow wrapping for very small screens (stacked mode handles layout) */
+@media (max-width: 480px) {
+	.ranking-table th,
+	.ranking-table td { white-space: normal; }
+}
+/* Filter icon in header */
+.ranking-table .filter-icon {
+	margin-left: 8px;
+	vertical-align: middle;
+	width:28px; height:28px;
+	color: rgba(255,255,255,0.9);
+}
+
+.player-filter-menu .mat-form-field { margin: 0; }
+.player-filter-menu .mat-button { padding: 6px 8px; }
+
+
+
